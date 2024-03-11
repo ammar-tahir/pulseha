@@ -14,7 +14,15 @@ jobs:
         with:
           go-version: '1.21.8'
       - name: Install dependencies
-        run: go get github.com/golang/protobuf
+        run: |
+          go get github.com/golang/protobuf
+          go get github.com/syleron/pulseha/cmd/pulsectl
+          go get github.com/syleron/pulseha/src/pulsectl
+          go get github.com/syleron/pulseha/cmd/pulseha
+          go get github.com/syleron/pulseha/packages/client
+          go get github.com/syleron/pulseha/rpc
+          go get github.com/syleron/pulseha/packages/logging
+          go get github.com/syleron/pulseha/packages/client
       - name: Build
         run: go build -v ./...
       - name: Test with the Go CLI
