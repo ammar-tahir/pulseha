@@ -22,7 +22,13 @@ jobs:
           go get github.com/syleron/pulseha/packages/client
           go get github.com/syleron/pulseha/rpc
           go get github.com/syleron/pulseha/packages/logging
+      - name: Install Plugins
+        run: |
+          sudo install plugin-netcore
+          sudo install plugin-genemailalerts
+          sudo install plugin-hcping
+          sudo install plugin-hcserial
       - name: Build
-        run: go build -v ./pulsehse/main.go
+        run: go build -v ./...
       - name: Test with the Go CLI
         run: go test
