@@ -24,10 +24,10 @@ jobs:
           go get github.com/syleron/pulseha/packages/logging
       - name: Install Plugins
         run: |
-          sudo install plugin-netcore /usr/local/lib/pulseha
-          sudo install plugin-genemailalerts /usr/local/lib/pulseha
-          sudo install plugin-hcping /usr/local/lib/pulseha
-          sudo install plugin-hcserial /usr/local/lib/pulseha
+          sudo install plugin-netcore "/usr/local/lib/pulseha"
+          sudo install plugin-genemailalerts "/usr/local/lib/pulseha"
+          sudo install plugin-hcping "/usr/local/lib/pulseha"
+          sudo install plugin-hcserial "/usr/local/lib/pulseha"
       - name: Build
         run: go build -v ./...
       - name: Test with the Go CLI
