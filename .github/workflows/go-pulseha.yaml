@@ -22,8 +22,7 @@ jobs:
           go get github.com/syleron/pulseha/packages/client
           go get github.com/syleron/pulseha/rpc
           go get github.com/syleron/pulseha/packages/logging
-          go get github.com/mitchellh/cli
       - name: Build
-        run: go build -v ./...
+        run: go build -v ./pulsehse/main.go
       - name: Test with the Go CLI
         run: go test
