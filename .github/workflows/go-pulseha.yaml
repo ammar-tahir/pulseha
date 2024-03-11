@@ -14,7 +14,7 @@ jobs:
         with:
           go-version: '1.21.8'
       - name: Install dependencies
-        run: go get ./go.mod
+        run: go get github.com/golang/protobuf
       - name: Build
         run: go build -v ./...
       - name: Test with the Go CLI
