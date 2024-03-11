@@ -24,11 +24,11 @@ jobs:
           go get github.com/syleron/pulseha/packages/logging
       - name: Install Plugins
         run: |
-          go build -o ./plugins/netcore/bin/networking.so ./plugins/netcore
-          go build -o ./plugins/hcPing/bin/hcping.so ./plugins/hcPing
-          go build -o ./plugins/hcSerial/bin/hcserial.so ./plugins/hcSerial
-          go build -o ./plugins/genEmailAlerts/bin/genemail.so ./plugins/genEmailAlerts
+          go build -buildmode=plugin -o ./plugins/netcore/bin/networking.so ./plugins/netcore
+          go build -buildmode=plugin -o ./plugins/hcPing/bin/hcping.so ./plugins/hcPing
+          go build -buildmode=plugin -o ./plugins/hcSerial/bin/hcserial.so ./plugins/hcSerial
+          go build -buildmode=plugin -o ./plugins/genEmailAlerts/bin/genemail.so ./plugins/genEmailAlerts
       - name: Build
-        run: go build -v ./...
+        run: go build -v ./cmd/pulseha/main.go
       - name: Test with the Go CLI
         run: go test
